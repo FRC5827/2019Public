@@ -49,7 +49,7 @@ public class Robot extends TimedRobot
         teleopManager = new TeleopManager(robotResources, autoManager);
 
         // Start the camera server
-        CameraServer.getInstance().startAutomaticCapture();
+        CameraServer.startAutomaticCapture();
 
         Climber climb = robotResources.getClimber();
 

@@ -18,7 +18,7 @@ import org.usfirst.frc.team5827.robot.robot_resources.Drive;
 import org.usfirst.frc.team5827.robot.robot_resources.Flag;
 import org.usfirst.frc.team5827.robot.robot_resources.OperatorControl;
  import org.usfirst.frc.team5827.robot.autonomous.AutonomousPatterns;
-import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
+//import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
 import org.usfirst.frc.team5827.robot.Logging;
 
  public class TeleopManager extends GameSegmentManager
@@ -128,8 +128,8 @@ import org.usfirst.frc.team5827.robot.Logging;
         {
 			inAutonomousPattern = true;
 
-            LimeLightConnector.setLedMode(true);
-            LimeLightConnector.setSnapshot(true);
+            //LimeLightConnector.setLedMode(true);
+            //LimeLightConnector.setSnapshot(true);
 
             // Initialize autonomous.
             autoManager.configureDrive();
@@ -148,8 +148,8 @@ import org.usfirst.frc.team5827.robot.Logging;
         {
             inAutonomousPattern = true;
 
-            LimeLightConnector.setLedMode(true);
-            LimeLightConnector.setSnapshot(true);
+            //LimeLightConnector.setLedMode(true);
+            //LimeLightConnector.setSnapshot(true);
 
             // Initialize autonomous.
             autoManager.configureDrive();

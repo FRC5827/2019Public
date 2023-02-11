@@ -3,6 +3,7 @@ package org.usfirst.frc.team5827.robot.robot_resources;
 import org.usfirst.frc.team5827.robot.Logging;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 /**
  * Hatch Panel Manipulator
@@ -21,10 +22,10 @@ public class HatchPanelManipulator
 	public HatchPanelManipulator() {
 		if (USE_SOLENOID) {
 						// Initialize solenoids from RobotMap ids.
-						hatch = new DoubleSolenoid(RobotMap.SolenoidOptions.HATCH_ID, 
+						hatch = new DoubleSolenoid(RobotMap.SolenoidOptions.HATCH_ID, PneumaticsModuleType.CTREPCM,
 																			 RobotMap.SolenoidOptions.HATCH_FORWARD_CHANNEL,
 																			 RobotMap.SolenoidOptions.HATCH_BACKWARD_CHANNEL);
-						extender = new DoubleSolenoid(RobotMap.SolenoidOptions.EXTENDER_ID, 
+						extender = new DoubleSolenoid(RobotMap.SolenoidOptions.EXTENDER_ID, PneumaticsModuleType.CTREPCM, 
 																					RobotMap.SolenoidOptions.EXTENDER_FORWARD_CHANNEL,
                                                                                     RobotMap.SolenoidOptions.EXTENDER_BACKWARD_CHANNEL);
                         extended = false;

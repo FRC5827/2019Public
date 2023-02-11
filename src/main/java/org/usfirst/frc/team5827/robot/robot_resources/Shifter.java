@@ -3,6 +3,7 @@ package org.usfirst.frc.team5827.robot.robot_resources;
 import org.usfirst.frc.team5827.robot.Logging;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 /**
  * Shifter
@@ -15,8 +16,8 @@ public class Shifter
 	public Shifter() {
 		if (RobotMap.SolenoidOptions.USE_SOLENOIDS) 
 		{
-			shifter = new DoubleSolenoid(RobotMap.SolenoidOptions.SHIFTER_ID,
-				RobotMap.SolenoidOptions.SHIFTER_FORWARD_CHANNEL, RobotMap.SolenoidOptions.SHIFTER_BACKWARD_CHANNEL);
+			shifter = new DoubleSolenoid(RobotMap.SolenoidOptions.SHIFTER_ID, PneumaticsModuleType.CTREPCM,
+			RobotMap.SolenoidOptions.SHIFTER_FORWARD_CHANNEL, RobotMap.SolenoidOptions.SHIFTER_BACKWARD_CHANNEL);
 		}
 	}
 

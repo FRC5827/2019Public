@@ -28,7 +28,7 @@ public class Robot extends TimedRobot
     protected SmartDashboardManager dashboardManager;
 
     // Teleop and autonomous managers.
-    protected AutonomousManager autoManager;
+    //protected AutonomousManager autoManager;
     protected TeleopManager teleopManager;
     protected GameSegmentManager currentSegment = null;
 
@@ -37,15 +37,15 @@ public class Robot extends TimedRobot
 	{
 
         // Initialize the limelight.
-        LimeLightConnector.initializeIfNeeded();
-        LimeLightConnector.setCameraMode(true);
+        // LimeLightConnector.initializeIfNeeded();
+        // LimeLightConnector.setCameraMode(true);
 
 		//initialize drive base and operator control
         robotResources = new RobotControl();
         dashboardManager = SmartDashboardManager.getInstance();
 
         // Initialize the autonomous and teleop managers.
-        autoManager = new AutonomousManager(robotResources);
+        //autoManager = new AutonomousManager(robotResources);
         teleopManager = new TeleopManager(robotResources, autoManager);
 
         // Start the camera server
@@ -55,22 +55,22 @@ public class Robot extends TimedRobot
 
 	}
 
-	@Override
-	public void autonomousInit()
-	{
-        autoManager.onModeInit();
+	//@Override
+	// public void autonomousInit()
+	// {
+    //     autoManager.onModeInit();
 
-        currentSegment = autoManager;
-	}
+    //     currentSegment = autoManager;
+	// }
 
-	@Override
-	public void autonomousPeriodic()
-	{
-        teleopManager.periodic();
+	// @Override
+	// public void autonomousPeriodic()
+	// {
+    //     teleopManager.periodic();
 
-        // Update data on the Smart Dashboard.
-        dashboardManager.update();
-    }
+    //     // Update data on the Smart Dashboard.
+    //     dashboardManager.update();
+    // }
 
 	@Override
 	public void teleopInit()
@@ -135,7 +135,7 @@ public class Robot extends TimedRobot
             currentSegment.onModeDisable();
         }
 
-        autoManager.onModeDisable();
+        //autoManager.onModeDisable();
 
         Drive drive = robotResources.getDrive();
         drive.stop();

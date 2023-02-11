@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5827.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.math.controller.PIDController ;
 //import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -74,7 +76,19 @@ public class PIDLoop //implements PIDOutput
 		//PIDController.setName(name);
 		SmartDashboard.putData(name, PIDController);
 	}
-	
+	// I presume that the float is the tolerance. Correct me if I'm wrong
+	// Also, I don't know what the RotEncoder is for. The constructor was called with a RotEncoder
+	public PIDLoop(String name, double Kp, double Ki, double Kd, RotEncoder rotEncoder, float kTolerance) {
+		PIDController = new PIDController(Kp, Ki, Kd, .02);
+		PIDController.setTolerance(kTolerance);
+		// I don't know what to do with the RotEncoder. 
+	}
+	//Note: I just guessed what the values are. Correct me if I'm wrong
+	public PIDLoop(String name, double Kp, int Ki, int Kd, AHRS gyro, float inputMin, float inputMax, float kTolerance, boolean continuous) {
+		PIDController = new PIDController(Kp, Ki, Kd, .02);
+		PIDController.setIntegratorRange(inputMin, inputMax);
+		PIDController.setTolerance(kTolerance);
+	}
 
 	//reset the PIDController and disable it
 	public void reset() {

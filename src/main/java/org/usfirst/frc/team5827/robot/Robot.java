@@ -46,7 +46,7 @@ public class Robot extends TimedRobot
 
         // Initialize the autonomous and teleop managers.
         //autoManager = new AutonomousManager(robotResources);
-        teleopManager = new TeleopManager(robotResources, autoManager);
+        teleopManager = new TeleopManager(robotResources);
 
         // Start the camera server
         CameraServer.startAutomaticCapture();

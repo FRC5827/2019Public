@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5827.robot;
-import edu.wpi.first.wpilibj.PIDSource;
-import edu.wpi.first.wpilibj.PIDSourceType;
+//import edu.wpi.first.wpilibj.PIDSource;
+//import edu.wpi.first.wpilibj.PIDSourceType;
 
 import com.ctre.phoenix.ErrorCode;
 import com.ctre.phoenix.motorcontrol.SensorCollection;
@@ -9,16 +9,16 @@ import com.ctre.phoenix.motorcontrol.SensorCollection;
  * @author Efraim 
  *
  */
-public class RotEncoder implements PIDSource
+public class RotEncoder //implements PIDSource
 {
 	
 	public boolean isInverted = false;
 	
-	private PIDSourceType sourcetype;
+	//private PIDSourceType sourcetype;
 	private SensorCollection sensor;
 	
 	public RotEncoder(SensorCollection sensor) {
-		sourcetype = PIDSourceType.kDisplacement;
+		//sourcetype = PIDSourceType.kDisplacement;
 		this.sensor = sensor;
 	}
 	
@@ -36,20 +36,20 @@ public class RotEncoder implements PIDSource
 		//return RobotMap.liftMotor2.getSelectedSensorPosition(0);
 	}
 	
-	@Override
-	public void setPIDSourceType(PIDSourceType pidSource)
-	{
-		sourcetype = pidSource;
+	// @Override
+	// public void setPIDSourceType(PIDSourceType pidSource)
+	// {
+	// 	//sourcetype = pidSource;
 		
-	}
+	// }
 
-	@Override
-	public PIDSourceType getPIDSourceType()
-	{
-		return sourcetype;
-	}
+	// @Override
+	// public PIDSourceType getPIDSourceType()
+	// {
+	// 	return sourcetype;
+	// }
 
-	@Override
+	//@Override
 	public double pidGet()
 	{
 		if(isInverted)

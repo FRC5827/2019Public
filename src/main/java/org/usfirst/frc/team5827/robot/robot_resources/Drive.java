@@ -13,16 +13,16 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-import edu.wpi.first.wpilibj.PIDSource;
+//import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+//import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.kauailabs.navx.frc.AHRS;
 
-import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
-import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightPIDSource;
+//import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
+//import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightPIDSource;
 import org.usfirst.frc.team5827.robot.PIDLoop;
 import org.usfirst.frc.team5827.robot.PIDHandler;
 import org.usfirst.frc.team5827.robot.RotEncoder;
@@ -85,8 +85,8 @@ public class Drive {
 
         // Gather PID Sources.
         gyro = new AHRS(SPI.Port.kMXP);
-        PIDSource limelightAnglePIDSource = new LimeLightPIDSource(LimeLightConnector.AccessibleProperties.X_OFFSET),
-                limelightDistancePIDSource = new LimeLightPIDSource(LimeLightConnector.AccessibleProperties.DISTANCE);
+        // PIDSource limelightAnglePIDSource = new LimeLightPIDSource(LimeLightConnector.AccessibleProperties.X_OFFSET),
+        //         limelightDistancePIDSource = new LimeLightPIDSource(LimeLightConnector.AccessibleProperties.DISTANCE);
 
 
         // Constants.
@@ -110,15 +110,15 @@ public class Drive {
 
         // Create the PID loops.
         PIDLoop turnPID = new PIDLoop("gyroturn", 0.01, 0, 0, gyro, -180.0f, 180.0f, 2.0f, true);
-        PIDLoop limelightTurn = new PIDLoop("limelightTurn", kP * 1.2, kI * 10, kD, limelightAnglePIDSource, angleInputMin, 
-                angleInputMax, angleTolerance, true);
-        PIDLoop limelightDistance = new PIDLoop("limelightDistance", kP, 0 /* kI * 2.0 */, 0 /* kD * 2 */, limelightDistancePIDSource, distanceInputMin, 
-                distanceInputMax, distanceTolerance, false);
+        // PIDLoop limelightTurn = new PIDLoop("limelightTurn", kP * 1.2, kI * 10, kD, limelightAnglePIDSource, angleInputMin, 
+        //         angleInputMax, angleTolerance, true);
+        // PIDLoop limelightDistance = new PIDLoop("limelightDistance", kP, 0 /* kI * 2.0 */, 0 /* kD * 2 */, limelightDistancePIDSource, distanceInputMin, 
+        //         distanceInputMax, distanceTolerance, false);
 
         // Add the PID loops to the PID handler.
         pidLoopHandler.addPIDLoop(PIDLoopNames.GYRO_TURN, turnPID);
-        pidLoopHandler.addPIDLoop(PIDLoopNames.LIMELIGHT_TURN, limelightTurn);
-        pidLoopHandler.addPIDLoop(PIDLoopNames.LIMELIGHT_DISTANCE, limelightDistance);
+        // pidLoopHandler.addPIDLoop(PIDLoopNames.LIMELIGHT_TURN, limelightTurn);
+        // pidLoopHandler.addPIDLoop(PIDLoopNames.LIMELIGHT_DISTANCE, limelightDistance);
 
         // Enable drive assist.
         //driveAssist = true;
@@ -282,8 +282,8 @@ public class Drive {
         distancePID.setSetpoint(ticks);
         anglePID.setSetpoint(gyro.getYaw());
 
-        distancePID.enable();
-        anglePID.enable();
+        // distancePID.enable();
+        // anglePID.enable();
 
         //ramp up motors to prevent jerking
         leftTalon.configOpenloopRamp(0.25);
@@ -326,8 +326,8 @@ public class Drive {
 		limelightDistance.setSetpoint(distanceToAchieveInches);
 
 		// Enable these.
-		limelightTurn.enable();
-        limelightDistance.enable();
+		// limelightTurn.enable();
+        // limelightDistance.enable();
 
         //ramp up motors to prevent jerking
         leftTalon.configOpenloopRamp(0.25);

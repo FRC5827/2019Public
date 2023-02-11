@@ -106,7 +106,7 @@
 //         //
 //         //Logging.consoleLog("auton mode init end");
 //     }
-
+//     // Used by TeleopManager
 //     public void onModeDisable()
 //     {
 //         stopAutonCommand();

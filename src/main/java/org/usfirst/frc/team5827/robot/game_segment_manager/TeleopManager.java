@@ -17,7 +17,7 @@ import org.usfirst.frc.team5827.robot.robot_resources.Climber;
 import org.usfirst.frc.team5827.robot.robot_resources.Drive;
 import org.usfirst.frc.team5827.robot.robot_resources.Flag;
 import org.usfirst.frc.team5827.robot.robot_resources.OperatorControl;
- import org.usfirst.frc.team5827.robot.autonomous.AutonomousPatterns;
+//import org.usfirst.frc.team5827.robot.autonomous.AutonomousPatterns;
 //import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
 import org.usfirst.frc.team5827.robot.Logging;
 
@@ -25,7 +25,7 @@ import org.usfirst.frc.team5827.robot.Logging;
  {
     private boolean inAutonomousPattern = false;
     private boolean turnauton = false;
-    private AutonomousManager autoManager;
+    //private AutonomousManager autoManager;
     private Servo servo;
 
     Drive drive;
@@ -37,11 +37,11 @@ import org.usfirst.frc.team5827.robot.Logging;
 
     // The given AutonomousManager allows autonomous patterns to be run in
     //teleop.
-    public TeleopManager(RobotControl robotResources, AutonomousManager autonomousManager)
+    public TeleopManager(RobotControl robotResources)
     {
         super(robotResources);
 
-        autoManager = autonomousManager;
+        //autoManager = autonomousManager;
 
         drive = robotResourceManager.getDrive();
         hatch = robotResourceManager.getHatchManipulator();
@@ -65,7 +65,7 @@ import org.usfirst.frc.team5827.robot.Logging;
         climb.setBrakeMode(true);
         climb.stop();
         drive.simpleArcadeDrive(0, 0);
-        autoManager.onModeDisable();
+        //autoManager.onModeDisable();
 
         flag.raise();
     }
@@ -93,10 +93,10 @@ import org.usfirst.frc.team5827.robot.Logging;
                 inAutonomousPattern = true;
 
                 // Initialize autonomous.
-                autoManager.configureDrive();
+                //autoManager.configureDrive();
 
                 // Go to the target.
-                autoManager.selectPattern(AutonomousPatterns.Pattern.LOWER_LEFT);
+                //autoManager.selectPattern(AutonomousPatterns.Pattern.LOWER_LEFT);
 
                 // Log this.
                 Logging.consoleLog("Started Autonomous.");
@@ -105,10 +105,10 @@ import org.usfirst.frc.team5827.robot.Logging;
                 inAutonomousPattern = true;
 
                 // Initialize autonomous.
-                autoManager.configureDrive();
+                //autoManager.configureDrive();
 
                 // Go to the target.
-                autoManager.selectPattern(AutonomousPatterns.Pattern.LOWER_RIGHT);
+                //autoManager.selectPattern(AutonomousPatterns.Pattern.LOWER_RIGHT);
 
                 // Log this.
                 Logging.consoleLog("Started Autonomous.");
@@ -132,10 +132,10 @@ import org.usfirst.frc.team5827.robot.Logging;
             //LimeLightConnector.setSnapshot(true);
 
             // Initialize autonomous.
-            autoManager.configureDrive();
+            //autoManager.configureDrive();
 
             // Go to the target.
-            autoManager.selectPattern(AutonomousPatterns.Pattern.GET_HATCH);
+            //autoManager.selectPattern(AutonomousPatterns.Pattern.GET_HATCH);
 
             // Log this.
             Logging.consoleLog("Started Autonomous.");
@@ -152,10 +152,10 @@ import org.usfirst.frc.team5827.robot.Logging;
             //LimeLightConnector.setSnapshot(true);
 
             // Initialize autonomous.
-            autoManager.configureDrive();
+            //autoManager.configureDrive();
 
             // Go to the target.
-            autoManager.selectPattern(AutonomousPatterns.Pattern.PLACE_HATCH);
+            //autoManager.selectPattern(AutonomousPatterns.Pattern.PLACE_HATCH);
 
             // Log this.
             Logging.consoleLog("Started Autonomous.");
@@ -165,7 +165,7 @@ import org.usfirst.frc.team5827.robot.Logging;
             turnauton = true;
 
             // Initialize autonomous.
-            autoManager.configureDrive();
+            //autoManager.configureDrive();
 
             // Log this.
             Logging.consoleLog("Started Autonomous.");
@@ -177,7 +177,7 @@ import org.usfirst.frc.team5827.robot.Logging;
             turnauton = true;
 
             // Initialize autonomous.
-            autoManager.configureDrive();
+            //autoManager.configureDrive();
 
             // Log this.
             Logging.consoleLog("Started Autonomous.");
@@ -196,10 +196,10 @@ import org.usfirst.frc.team5827.robot.Logging;
             inAutonomousPattern = true;
 
             // Initialize autonomous.
-            autoManager.configureDrive();
+            //autoManager.configureDrive();
 
             // Go to the target.
-            autoManager.selectPattern(AutonomousPatterns.Pattern.CLIMB);
+            //autoManager.selectPattern(AutonomousPatterns.Pattern.CLIMB);
 
             // Log this.
             Logging.consoleLog("Started Autonomous.");
@@ -221,9 +221,9 @@ import org.usfirst.frc.team5827.robot.Logging;
             turnauton = false;
 
             // Stop the current command.
-            autoManager.onModeDisable();
+            //autoManager.onModeDisable();
             drive.stop();
-            LimeLightConnector.setSnapshot(false);
+            //LimeLightConnector.setSnapshot(false);
 
             // Go back to curvature drive
             drive.setDriveMode(Drive.DriveMode.CURVATURE_DRIVE);
@@ -237,7 +237,7 @@ import org.usfirst.frc.team5827.robot.Logging;
         // If in an autonomous pattern, call the autonomous manager.
         if (inAutonomousPattern)
         {
-            autoManager.periodic();
+            //autoManager.periodic();
         }
         else
         {

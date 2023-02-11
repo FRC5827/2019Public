@@ -97,22 +97,22 @@ public class PIDLoop //implements PIDOutput
     }
     
     //if enabled, reset the PIDController and disable it
-    public void resetIfEnabled() {
-        if(PIDController.isEnabled()) {
-            reset();
-        }
-    }
+    // public void resetIfEnabled() {
+    //     //if(PIDController.isEnabled()) {
+    //         reset();
+    //     }
+    // }
 
 	//enable the PIDController
-	public void enable() {
-		PIDController.enable();
-	}
+	// public void enable() {
+	// 	PIDController.enable();
+	// }
 
 	//disable the PIDController
-	public void disable() {
-        PIDController.disable();
-        pidOutput = 0.0;
-	}
+	// public void disable() {
+    //     PIDController.disable();
+    //     pidOutput = 0.0;
+	// }
 
 	/**
 	 * sets a new setpoint for the PIDController

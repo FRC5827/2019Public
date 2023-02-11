@@ -5,8 +5,8 @@
 //  */
 
 // import org.usfirst.frc.team5827.robot.robot_resources.Drive;
-// import org.usfirst.frc.team5827.robot.robot_resources.RobotMap;
-// import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
+// //import org.usfirst.frc.team5827.robot.robot_resources.RobotMap;
+// //import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
 
 // public class ToPerpendicularTarget extends AutonCommand
 // {
@@ -28,7 +28,7 @@
 //         drive.distanceToTargetDrive(distanceToGetTo / 12.0); // Convert to feet.
 //     }
 
-//     // Get whether the command should be stopped.
+//     //Get whether the command should be stopped.
 //     @Override
 //     public boolean getShouldStop()
 //     {

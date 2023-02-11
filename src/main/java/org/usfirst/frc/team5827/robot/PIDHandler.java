@@ -47,7 +47,7 @@ public class PIDHandler<PIDHandlerKey>
             switch(commandToRun)
             {
                 case ENABLE:
-                    currentLoop.enable();
+                    //currentLoop.enable();
                     break;
                 
                 case RESET:
@@ -55,11 +55,11 @@ public class PIDHandler<PIDHandlerKey>
                     break;
 
                 case RESET_IF_ENABLED:
-                    currentLoop.resetIfEnabled();
+                    //currentLoop.resetIfEnabled();
                     break;
 
                 case DISABLE:
-                    currentLoop.disable();
+                    //currentLoop.disable();
                     break;
             }
 
@@ -109,7 +109,7 @@ public class PIDHandler<PIDHandlerKey>
 
         // Enable.
         PIDLoop current = getCurrentPIDLoop();
-        current.enable();
+        //current.enable();
 
         // Return true on success.
         return true;

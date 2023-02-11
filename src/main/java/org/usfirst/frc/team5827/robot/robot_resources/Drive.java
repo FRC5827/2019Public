@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.kauailabs.navx.frc.AHRS;
 
@@ -44,8 +45,8 @@ public class Drive {
     //Encoder
     public RotEncoder leftDriveEncoder;
     //Drive base
-    public SpeedControllerGroup left;
-    public SpeedControllerGroup right;
+    public MotorControllerGroup left;
+    public MotorControllerGroup right;
     public DifferentialDrive drive;
     //Gyro
     private AHRS gyro;
@@ -73,8 +74,8 @@ public class Drive {
         //use motors to construct drive base
         leftVictor.follow(leftTalon);
         rightVictor.follow(rightTalon);
-        left = new SpeedControllerGroup(leftTalon);
-        right = new SpeedControllerGroup(rightTalon);
+        left = new MotorControllerGroup(leftTalon);
+        right = new MotorControllerGroup(rightTalon);
         drive = new DifferentialDrive(left, right);
 
         drive.setDeadband(0.0);

@@ -1,15 +1,14 @@
 package org.usfirst.frc.team5827.robot;
 
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.PIDSource;
+import edu.wpi.first.math.controller.PIDController ;
+//import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Versatile Class for PID Loops
  * @author Matthew
  */
-public class PIDLoop implements PIDOutput
+public class PIDLoop //implements PIDOutput
 {
 	//base FRC PIDController
 	private PIDController PIDController;
@@ -29,11 +28,11 @@ public class PIDLoop implements PIDOutput
      * (such as a -180 to 180 angle range, in which 180 and -180 are the same point, so that shifting from -179.99 to 179.99
      * is not a problem.)
 	 */
-	public PIDLoop(String name, double Kp, double Ki, double Kd, PIDSource source, double kTolerance) {
-		PIDController = new PIDController(Kp, Ki, Kd, source, this, .02);
-		PIDController.setAbsoluteTolerance(kTolerance);
+	public PIDLoop(String name, double Kp, double Ki, double Kd,  double kTolerance) {
+		PIDController = new PIDController(Kp, Ki, Kd, .02);
+		PIDController.setTolerance(kTolerance);
 		PIDController.reset();
-		PIDController.setName(name);
+		//PIDController.setName(name);
 		SmartDashboard.putData(name, PIDController);
     }
     
@@ -48,8 +47,8 @@ public class PIDLoop implements PIDOutput
 	 * @param inputMin Minimum input value
 	 * @param inputMax Maximum input value
 	 */
-	public PIDLoop(String name, double Kp, double Ki, double Kd, PIDSource source, double inputMin, double inputMax, double kTolerance) {
-		this(name, Kp, Ki, Kd, source, inputMin, inputMax, kTolerance, true); // Default to continuous input.
+	public PIDLoop(String name, double Kp, double Ki, double Kd,  double inputMin, double inputMax, double kTolerance) {
+		this(name, Kp, Ki, Kd, inputMin, inputMax, kTolerance, true); // Default to continuous input.
     }
     
     /**
@@ -66,13 +65,13 @@ public class PIDLoop implements PIDOutput
      * (such as a -180 to 180 angle range, in which 180 and -180 are the same point, so that shifting from -179.99 to 179.99
      * is not a problem.)
 	 */
-	public PIDLoop(String name, double Kp, double Ki, double Kd, PIDSource source, double inputMin, double inputMax, double kTolerance, boolean continuous) {
-		PIDController = new PIDController(Kp, Ki, Kd, source, this, .02);
-		PIDController.setInputRange(inputMin, inputMax);
-		PIDController.setAbsoluteTolerance(kTolerance);
-		PIDController.setContinuous(continuous);
+	public PIDLoop(String name, double Kp, double Ki, double Kd,  double inputMin, double inputMax, double kTolerance, boolean continuous) {
+		PIDController = new PIDController(Kp, Ki, Kd, .02);
+		PIDController.setIntegratorRange(inputMin, inputMax);
+		PIDController.setTolerance(kTolerance);
+		//PIDController.setContinuous(continuous);
 		PIDController.reset();
-		PIDController.setName(name);
+		//PIDController.setName(name);
 		SmartDashboard.putData(name, PIDController);
 	}
 	
@@ -126,8 +125,6 @@ public class PIDLoop implements PIDOutput
 	public double getPIDOutput() {
 		return pidOutput;
 	}
-
-	@Override
 	/**
 	 * This function is invoked periodically by the PIDController
 	 * @param output output from the PIDController

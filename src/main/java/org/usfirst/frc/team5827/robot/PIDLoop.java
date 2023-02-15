@@ -78,7 +78,7 @@ public class PIDLoop //implements PIDOutput
 	}
 	// I presume that the float is the tolerance. Correct me if I'm wrong
 	// Also, I don't know what the RotEncoder is for. The constructor was called with a RotEncoder
-	public PIDLoop(String name, double Kp, double Ki, double Kd, RotEncoder rotEncoder, float kTolerance) {
+	public PIDLoop(String name, double Kp, double Ki, double Kd, float kTolerance) {
 		PIDController = new PIDController(Kp, Ki, Kd, .02);
 		PIDController.setTolerance(kTolerance);
 		// I don't know what to do with the RotEncoder. 
@@ -98,19 +98,19 @@ public class PIDLoop //implements PIDOutput
     
     //if enabled, reset the PIDController and disable it
     public void resetIfEnabled() {
-        if(PIDController.isEnabled()) {
+        //if(PIDController.isEnabled()) {
             reset();
-        }
+        //}
     }
 
 	//enable the PIDController
 	public void enable() {
-		PIDController.enable();
+		//PIDController.enable();
 	}
 
 	//disable the PIDController
 	public void disable() {
-        PIDController.disable();
+        //PIDController.disable();
         pidOutput = 0.0;
 	}
 

@@ -9,10 +9,10 @@ import edu.wpi.first.cameraserver.CameraServer;
 
 import org.usfirst.frc.team5827.robot.dashboard_manager.SmartDashboardManager;
 
-import org.usfirst.frc.team5827.robot.game_segment_manager.AutonomousManager;
+//import org.usfirst.frc.team5827.robot.game_segment_manager.AutonomousManager;
 import org.usfirst.frc.team5827.robot.game_segment_manager.GameSegmentManager;
 import org.usfirst.frc.team5827.robot.game_segment_manager.TeleopManager;
-import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
+//import org.usfirst.frc.team5827.robot.limelight_connector.LimeLightConnector;
 import org.usfirst.frc.team5827.robot.robot_resources.Climber;
 import org.usfirst.frc.team5827.robot.robot_resources.Drive;
 import org.usfirst.frc.team5827.robot.robot_resources.HatchPanelManipulator;
@@ -46,7 +46,7 @@ public class Robot extends TimedRobot
 
         // Initialize the autonomous and teleop managers.
         //autoManager = new AutonomousManager(robotResources);
-        teleopManager = new TeleopManager(robotResources, autoManager);
+        teleopManager = new TeleopManager(robotResources); //, autoManager);
 
         // Start the camera server
         CameraServer.startAutomaticCapture();
